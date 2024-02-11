@@ -19,8 +19,8 @@ with st.form("user_inputs"):
     question=st.text_input("Ask anything about policies available", max_chars=100)
     
     # Set Tone of the question
-    tone= st.text_input("Complexity level of question", max_chars=20, placeholder="Simple")
-    
+    # tone= st.text_input("Complexity level of question", max_chars=20, placeholder="Simple")
+    tone= "Medium"
     ## Submit button
     ask_button= st.form_submit_button("Ask")
 ###########################################
