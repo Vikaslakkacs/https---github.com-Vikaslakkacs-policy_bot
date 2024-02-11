@@ -43,40 +43,40 @@ with st.sidebar:
         st.session_state.messages.append({"role": "user", "content": question})
         ##messages.chat_message("assistant").write(f"Echo: {prompt}")
         ###########################################
-        ## Field Validations
-        ## if ask_button and upload_file_list is not None and question:
-        if upload_file_list is not None and question:
-            with st.spinner("Fetching details..."):
-                try:
-                    ## Get the text from files
-                    text= read_file(upload_file_list)
-                    ##Execute evaluate chain
-                    with get_openai_callback() as cb:
-                        response= generate_evaluate_chain(
-                            {
-                                "text": text,
-                                "tone": tone,
-                                "question": question
-                            }
-                        )      
-                except Exception as e:
-                    traceback.print_exception(type(e),e, e.__traceback__)
-                    st.error("Error")      
+    ## Field Validations
+    ## if ask_button and upload_file_list is not None and question:
+    if upload_file_list is not None and question:
+        with st.spinner("Fetching details..."):
+            try:
+                ## Get the text from files
+                text= read_file(upload_file_list)
+                ##Execute evaluate chain
+                with get_openai_callback() as cb:
+                    response= generate_evaluate_chain(
+                        {
+                            "text": text,
+                            "tone": tone,
+                            "question": question
+                        }
+                    )      
+            except Exception as e:
+                traceback.print_exception(type(e),e, e.__traceback__)
+                st.error("Error")      
+            
+            else:
                 
+                print(f"Total Tokens: {cb.total_tokens}")
+                print(f"Prompt Tokens: {cb.prompt_tokens}")
+                print(f"Completion tokens: {cb.completion_tokens}")
+                print(f"Total Cost:{cb.total_cost}")
+                
+                if isinstance(response, str):
+                    answer= response.get("policy_response")
+                    st.text_area(label= "Reponse", value= answer)
                 else:
-                    
-                    print(f"Total Tokens: {cb.total_tokens}")
-                    print(f"Prompt Tokens: {cb.prompt_tokens}")
-                    print(f"Completion tokens: {cb.completion_tokens}")
-                    print(f"Total Cost:{cb.total_cost}")
-                    
-                    if isinstance(response, str):
-                        answer= response.get("policy_response")
-                        st.text_area(label= "Reponse", value= answer)
-                    else:
-                        #st.write(response.get('policy_response'))
-                            # Display assistant response in chat message container
-                        #messages.chat_message("assistant").write(f"Bot: {response.get('policy_response')}")
-                        messages.chat_message("assistant").write(f"{response}")
-                        # Add assistant response to chat history
-                        st.session_state.messages.append({"role": "assistant", "content": response.get('policy_response')})
+                    #st.write(response.get('policy_response'))
+                        # Display assistant response in chat message container
+                    #messages.chat_message("assistant").write(f"Bot: {response.get('policy_response')}")
+                    messages.chat_message("assistant").write(f"{response}")
+                    # Add assistant response to chat history
+                    st.session_state.messages.append({"role": "assistant", "content": response.get('policy_response')})
