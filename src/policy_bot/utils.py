@@ -1,7 +1,7 @@
 import os
 
 def read_file(file_list):
-    text=f'{file_list}'
+    text=''
     for file in file_list:
         if file.name.endswith(".txt"):
             text=text + "/n/n"+ file.read().decode("utf-8")

@@ -45,7 +45,7 @@ with st.sidebar:
         ###########################################
         ## Field Validations
         ## if ask_button and upload_file_list is not None and question:
-        if upload_file_list is not None and question:
+        if len(upload_file_list)>0 and question:
             ## Get the text from files
             text= read_file(upload_file_list)
             with st.spinner("Fetching details..."):
