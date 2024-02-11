@@ -14,10 +14,6 @@ st.subheader('A Knowledge bot that answers your questions about all the policies
 with st.form("user_inputs"):
     ##File upload (Can upload multiple files)
     upload_file_list= st.file_uploader("Upload one or more files", type=['txt'])
-    ## Get the text from files
-    text= read_file(upload_file_list)
-    print(f"text uploaded: {upload_file_list}")
-    print(f"Type of Upload files folder")
     ## Input fields
     ##question=st.text_input("Ask anything about policies available", max_chars=100)
     
@@ -49,6 +45,10 @@ with st.sidebar:
     ## Field Validations
     ## if ask_button and upload_file_list is not None and question:
     if upload_file_list is not None and question:
+        ## Get the text from files
+        text= read_file(upload_file_list)
+        print(f"text uploaded: {upload_file_list}")
+        print(f"Type of Upload files folder")
         with st.spinner("Fetching details..."):
             try:
                 ##Execute evaluate chain
