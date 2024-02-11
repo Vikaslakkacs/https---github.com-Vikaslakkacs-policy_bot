@@ -25,8 +25,8 @@ with st.form("user_inputs"):
     ask_button= st.form_submit_button("Ask")
 ###########################################
 with st.sidebar:
+    st.title("Chat here...")
     messages = st.container(height=400)
-    st.title("Bot")
     # Initialize chat history
     if "messages" not in st.session_state:
         st.session_state.messages = []
