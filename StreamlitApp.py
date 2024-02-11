@@ -20,12 +20,12 @@ with st.form("user_inputs"):
     
     # Set Tone of the question
     # tone= st.text_input("Complexity level of question", max_chars=20, placeholder="Simple")
-    tone= "Medium"
+    tone= "Simple"
     ## Submit button
     ask_button= st.form_submit_button("Ask")
 ###########################################
 with st.sidebar:
-    messages = st.container(height=300)
+    messages = st.container()
     if question := st.chat_input("Say something"):
         messages.chat_message("user").write(question)
         ##messages.chat_message("assistant").write(f"Echo: {prompt}")
@@ -61,5 +61,5 @@ if upload_file_list is not None and question:
                 answer= response.get("policy_response")
                 st.text_area(label= "Reponse", value= answer)
             else:
-                st.write(response.get('policy_response'))
+                #st.write(response.get('policy_response'))
                 messages.chat_message("assistant").write(f"Echo: {response.get('policy_response')}")
