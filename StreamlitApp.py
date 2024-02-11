@@ -35,13 +35,6 @@ with st.sidebar:
 if upload_file_list is not None and question:
     with st.spinner("Fetching details..."):
         try:
-            ###########################################
-            with st.sidebar:
-                messages = st.container(height=300)
-                if question := st.chat_input("Say something"):
-                    messages.chat_message("user").write(question)
-                    ##messages.chat_message("assistant").write(f"Echo: {prompt}")
-            ###########################################
             ## Get the text from files
             text= read_file(upload_file_list)
             ##Execute evaluate chain
