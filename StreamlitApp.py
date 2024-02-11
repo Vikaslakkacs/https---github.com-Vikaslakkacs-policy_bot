@@ -35,7 +35,7 @@ with st.sidebar:
         with st.chat_message(message["role"]):
             st.markdown(message["content"])
 
-    if question := st.chat_input("Say something"):
+    if question := st.chat_input("Ask something"):
         messages.chat_message("user").write(question)
         # Add user message to chat history
         st.session_state.messages.append({"role": "user", "content": question})
