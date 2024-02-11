@@ -25,7 +25,7 @@ with st.form("user_inputs"):
     ask_button= st.form_submit_button("Ask")
 ###########################################
 with st.sidebar:
-    messages = st.container()
+    messages = st.container(height=300)
     if question := st.chat_input("Say something"):
         messages.chat_message("user").write(question)
         ##messages.chat_message("assistant").write(f"Echo: {prompt}")
@@ -62,4 +62,4 @@ if upload_file_list is not None and question:
                 st.text_area(label= "Reponse", value= answer)
             else:
                 #st.write(response.get('policy_response'))
-                messages.chat_message("assistant").write(f"Echo: {response.get('policy_response')}")
+                messages.chat_message("assistant").write(f"Bot: {response.get('policy_response')}")
