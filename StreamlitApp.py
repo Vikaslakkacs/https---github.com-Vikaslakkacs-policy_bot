@@ -9,7 +9,7 @@ from langchain.callbacks import get_openai_callback
 ##Crating title for application
 # st.title("Policy bot: A Knowledge bot which provides you answers regarding policies exist in company")
 st.header('Policy bot', divider='rainbow')
-st.caption('A Knowledge bot that answers your questions about all the policies available within organization.')
+st.subheader('A Knowledge bot that answers your questions about all the policies available within organization.')
 ##Streamlit form creation
 with st.form("user_inputs"):
     ##File upload (Can upload multiple files)
