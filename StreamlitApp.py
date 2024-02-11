@@ -76,6 +76,7 @@ with st.sidebar:
                     else:
                         #st.write(response.get('policy_response'))
                             # Display assistant response in chat message container
-                        messages.chat_message("assistant").write(f"Bot: {response.get('policy_response')}")
+                        #messages.chat_message("assistant").write(f"Bot: {response.get('policy_response')}")
+                        messages.chat_message("assistant").write(f"{response}")
                         # Add assistant response to chat history
                         st.session_state.messages.append({"role": "assistant", "content": response.get('policy_response')})
