@@ -74,8 +74,6 @@ if upload_file_list is not None and question:
             else:
                 #st.write(response.get('policy_response'))
                     # Display assistant response in chat message container
-                with st.chat_message("assistant"):
-                    st.markdown(response.get('policy_response'))
-                #messages.chat_message("assistant").write(f"Bot: {response.get('policy_response')}")
+                messages.chat_message("assistant").write(f"Bot: {response.get('policy_response')}")
                 # Add assistant response to chat history
                 st.session_state.messages.append({"role": "assistant", "content": response.get('policy_response')})
