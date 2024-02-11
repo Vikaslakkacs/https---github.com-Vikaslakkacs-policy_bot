@@ -77,7 +77,3 @@ with st.sidebar:
                         messages.chat_message("assistant").write(f"Bot: {response.get('policy_response')}")
                         # Add assistant response to chat history
                         st.session_state.messages.append({"role": "assistant", "content": response.get('policy_response')})
-                        # Display chat messages from history on app rerun
-                        for message in st.session_state.messages:
-                            with st.chat_message(message["role"]):
-                                st.markdown(message["content"])
