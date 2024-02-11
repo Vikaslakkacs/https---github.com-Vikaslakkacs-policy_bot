@@ -21,7 +21,7 @@ with st.form("user_inputs"):
     # tone= st.text_input("Complexity level of question", max_chars=20, placeholder="Simple")
     tone= "Simple"
     ## Submit button
-    ask_button= st.form_submit_button("Ask")
+    ask_button= st.form_submit_button("Upload")
 ###########################################
 with st.sidebar:
     st.title("Chat here...")
