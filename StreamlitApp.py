@@ -16,17 +16,17 @@ with st.form("user_inputs"):
     upload_file_list= st.file_uploader("Upload one or more files", type=['txt'], accept_multiple_files=True)
     print(f"Type of Upload files folder")
     ## Input fields
-    question=st.text_input("Ask anything about policies available", max_chars=100)
+    ##question=st.text_input("Ask anything about policies available", max_chars=100)
     
     # Set Tone of the question
     # tone= st.text_input("Complexity level of question", max_chars=20, placeholder="Simple")
     tone= "Simple"
     ## Submit button
-    ask_button= st.form_submit_button("Ask")
+    ##ask_button= st.form_submit_button("Ask")
 ###########################################
 with st.sidebar:
     messages = st.container(height=600)
-    if question := st.chat_input("Say something", num_previous_inputs=10):
+    if question := st.chat_input("Say something"):
         messages.chat_message("user").write(question)
         ##messages.chat_message("assistant").write(f"Echo: {prompt}")
 ###########################################
