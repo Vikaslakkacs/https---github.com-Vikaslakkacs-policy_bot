@@ -32,8 +32,8 @@ with st.sidebar:
 
     # Display chat messages from history on app rerun
     for message in st.session_state.messages:
-        with st.chat_message(message["user"]):
-            st.markdown(message["Bot"])
+        with st.chat_message(message["role"]):
+            st.markdown(message["content"])
 
     if question := st.chat_input("Say something"):
         messages.chat_message("user").write(question)
@@ -71,4 +71,4 @@ if upload_file_list is not None and question:
                 st.text_area(label= "Reponse", value= answer)
             else:
                 #st.write(response.get('policy_response'))
-                messages.chat_message("assistant").write(f"Bot: {response.get('policy_response')}")
+                messages.chat_message("role":"assistant").write(f"Bot: {response.get('policy_response')}")
