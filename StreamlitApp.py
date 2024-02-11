@@ -25,7 +25,7 @@ with st.form("user_inputs"):
     ask_button= st.form_submit_button("Ask")
 ###########################################
 with st.sidebar:
-    messages = st.container(height=600)
+    messages = st.container(height=1200)
     # Initialize chat history
     if "messages" not in st.session_state:
         st.session_state.messages = []
@@ -75,4 +75,4 @@ if upload_file_list is not None and question:
                 #st.write(response.get('policy_response'))
                 messages.chat_message("assistant").write(f"Bot: {response.get('policy_response')}")
                 # Add assistant response to chat history
-                st.session_state.messages.append({"role": "assistant", "content": {response.get('policy_response')}})
+                st.session_state.messages.append("role": "assistant", "content": {response.get('policy_response')})
