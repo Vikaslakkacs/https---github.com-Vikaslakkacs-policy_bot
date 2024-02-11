@@ -24,7 +24,7 @@ llm= ChatOpenAI(openai_api_key=KEY, model_name='gpt-3.5-turbo', temperature=1.2)
 TEMPLATE="""
 Text: {text}
 You are an expert information provider. Given above text, it is your job to provide appropritae answer in {tone} for the questions \
-    asked. Make sure your \ response is in text utf-8 format.
+    asked. Make sure your response is in text utf-8 format.
     Question: {question}
 """
 
