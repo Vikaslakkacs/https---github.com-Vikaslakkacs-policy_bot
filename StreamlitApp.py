@@ -7,8 +7,9 @@ import streamlit as st
 from langchain.callbacks import get_openai_callback
 
 ##Crating title for application
-st.title("Policy bot: A Knowledge bot which provides you answers regarding policies exist in company")
-
+# st.title("Policy bot: A Knowledge bot which provides you answers regarding policies exist in company")
+st.header('Policy bot', divider='rainbow')
+st.header('A Knowledge bot which provides you answers regarding policies exist in company :blue[cool] :sunglasses:')
 ##Streamlit form creation
 with st.form("user_inputs"):
     ##File upload (Can upload multiple files)
