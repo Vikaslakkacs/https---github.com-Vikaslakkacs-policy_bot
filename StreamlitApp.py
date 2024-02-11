@@ -31,7 +31,8 @@ with st.sidebar:
         ##messages.chat_message("assistant").write(f"Echo: {prompt}")
 ###########################################
 ## Field Validations
-if ask_button and upload_file_list is not None and question:
+## if ask_button and upload_file_list is not None and question:
+if upload_file_list is not None and question:
     with st.spinner("Fetching details..."):
         try:
             ###########################################
