@@ -23,7 +23,13 @@ with st.form("user_inputs"):
     
     ## Submit button
     ask_button= st.form_submit_button("Ask")
-
+###########################################
+with st.sidebar:
+    messages = st.container(height=300)
+    if question := st.chat_input("Say something"):
+        messages.chat_message("user").write(question)
+        ##messages.chat_message("assistant").write(f"Echo: {prompt}")
+###########################################
 ## Field Validations
 if ask_button and upload_file_list is not None and question:
     with st.spinner("Fetching details..."):
