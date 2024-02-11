@@ -26,6 +26,7 @@ with st.form("user_inputs"):
 ###########################################
 with st.sidebar:
     messages = st.container(height=400)
+    st.title("Bot")
     # Initialize chat history
     if "messages" not in st.session_state:
         st.session_state.messages = []
