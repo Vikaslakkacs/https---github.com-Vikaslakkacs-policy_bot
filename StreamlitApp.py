@@ -26,6 +26,15 @@ with st.form("user_inputs"):
 ###########################################
 with st.sidebar:
     messages = st.container(height=600)
+    # Initialize chat history
+    if "messages" not in st.session_state:
+        st.session_state.messages = []
+
+    # Display chat messages from history on app rerun
+    for message in st.session_state.messages:
+        with st.chat_message(message["user"]):
+            st.markdown(message["Bot"])
+
     if question := st.chat_input("Say something"):
         messages.chat_message("user").write(question)
         ##messages.chat_message("assistant").write(f"Echo: {prompt}")
