@@ -38,7 +38,7 @@ with st.sidebar:
     if question := st.chat_input("Say something"):
         messages.chat_message("user").write(question)
         # Add user message to chat history
-        messages.session_state.messages.append({"role": "user", "content": question})
+        st.session_state.messages.append({"role": "user", "content": question})
         ##messages.chat_message("assistant").write(f"Echo: {prompt}")
 ###########################################
 ## Field Validations
@@ -76,4 +76,4 @@ if upload_file_list is not None and question:
                     # Display assistant response in chat message container
                 messages.chat_message("assistant").write(f"Bot: {response.get('policy_response')}")
                 # Add assistant response to chat history
-                messages.session_state.messages.append({"role": "assistant", "content": response.get('policy_response')})
+                st.session_state.messages.append({"role": "assistant", "content": response.get('policy_response')})
