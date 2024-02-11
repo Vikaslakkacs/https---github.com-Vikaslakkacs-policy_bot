@@ -50,6 +50,7 @@ with st.sidebar:
             try:
                 ## Get the text from files
                 text= read_file(upload_file_list)
+                print(f"text: {text}")
                 ##Execute evaluate chain
                 with get_openai_callback() as cb:
                     response= generate_evaluate_chain(
