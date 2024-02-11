@@ -26,7 +26,7 @@ with st.form("user_inputs"):
 ###########################################
 with st.sidebar:
     messages = st.container(height=600)
-    if question := st.chat_input("Say something"):
+    if question := st.chat_input("Say something", num_previous_inputs=10):
         messages.chat_message("user").write(question)
         ##messages.chat_message("assistant").write(f"Echo: {prompt}")
 ###########################################
