@@ -25,7 +25,7 @@ with st.form("user_inputs"):
     ask_button= st.form_submit_button("Ask")
 ###########################################
 with st.sidebar:
-    messages = st.container(height=600, width=600)
+    messages = st.container(height=600)
     if question := st.chat_input("Say something"):
         messages.chat_message("user").write(question)
         ##messages.chat_message("assistant").write(f"Echo: {prompt}")
