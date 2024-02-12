@@ -26,7 +26,7 @@ with st.form("user_inputs"):
 with st.sidebar:
     st.title("Chat here...")
     messages = st.container(height=400)
-    # Initialize chat history
+   ''' # Initialize chat history
     if "messages" not in st.session_state:
         st.session_state.messages = []
     # Display chat messages from history on app rerun
@@ -35,7 +35,7 @@ with st.sidebar:
         
     for message in st.session_state.messages:
         with st.chat_message(message["role"]):
-            st.markdown(message["content"])
+            st.markdown(message["content"])'''
 
     if question := st.chat_input("Ask something"):
         messages.chat_message("user").write(question)
@@ -80,3 +80,13 @@ with st.sidebar:
                         messages.chat_message("assistant").write(f"{response.get('policy_response')}")
                         # Add assistant response to chat history
                         st.session_state.messages.append({"role": "assistant", "content": response.get('policy_response')})
+    # Initialize chat history
+    if "messages" not in st.session_state:
+        st.session_state.messages = []
+    # Display chat messages from history on app rerun
+    if st.session_state.messages != []:
+        st.text("Chat-history")
+        
+    for message in st.session_state.messages:
+        with st.chat_message(message["role"]):
+            st.markdown(message["content"])
