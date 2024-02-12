@@ -8,7 +8,7 @@ from langchain.callbacks import get_openai_callback
 
 ##Crating title for application
 # st.title("Policy bot: A Knowledge bot which provides you answers regarding policies exist in company")
-st.header('Policy-bot', divider='rainbow')
+st.header('Policy bot', divider='rainbow')
 st.subheader('A Knowledge bot that answers your questions about all the policies available within organization.')
 ##Streamlit form creation
 with st.form("user_inputs"):
@@ -74,7 +74,7 @@ with st.sidebar:
                         answer= response.get("policy_response")
                         st.text_area(label= "Reponse", value= answer)
                     else:
-                        st.write(response.get('policy_response'))
+                        #st.write(response.get('policy_response'))
                             # Display assistant response in chat message container
                         #messages.chat_message("assistant").write(f"Bot: {response.get('policy_response')}")
                         messages.chat_message("assistant").write(f"{response.get('policy_response')}")
