@@ -78,6 +78,6 @@ with st.sidebar:
     if len(st.session_state.messages) >2:
         st.text("Chat-history")
         
-        for message in st.session_state.messages:
+        for message in st.session_state.messages[:-2]:
             with st.chat_message(message["role"]):
                 st.markdown(message["content"])
