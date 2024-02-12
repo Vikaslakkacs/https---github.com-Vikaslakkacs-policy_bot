@@ -23,7 +23,7 @@ with st.form("user_inputs"):
     ## Submit button
     ask_button= st.form_submit_button("Upload")
 ###########################################
-with st.sidebar:
+with st.expander:
     st.title("Chat here...")
     messages = st.container(height=400)
 
