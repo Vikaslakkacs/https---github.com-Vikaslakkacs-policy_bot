@@ -4,5 +4,8 @@ streamlit
 python-dotenv
 PyPDF2
 pandas
+pinecone-client
+Pypdf
+tiktoken
 
 -e .
